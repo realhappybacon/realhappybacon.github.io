@@ -4,8 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For my sunshine</title>
-     <link rel="stylesheet" href="res/css/stars.css" />
-     <link rel="stylesheet" href="res/css/messages.css" />
+     
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle, #005E5E, #000000);
+    color: white;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+  #space-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 2s infinite ease-in-out;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.4); }
+  }
+        .message {
+    position: absolute;
+    top: calc(50% - 70px);
+    text-align: center;
+    font-family: 'Sour Gummy', cursive;
+    font-size: 24px;
+    color: white;
+    transition: background 300ms linear;
+}
+.circle-button {
+    width: 50px;
+    height: 50px;
+    background: #000000;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 0px 30px #000000;
+    transition: opacity 1s ease;
+    font-family: 'Sour Gummy', cursive;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+}</style>
 </head>
 <body>
    <div id="space-background"></div>

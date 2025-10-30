@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For my sunshine</title>
+     <link rel="stylesheet" href="res/css/stars.css" />
+     <link rel="stylesheet" href="res/css/messages.css" />
+</head>
+<body>
+   <div id="space-background"></div>
 
+   <div id="message-display" class="message"></div>
+   <button class="circle-button" onclick="fadeButton(this)">:3</button>
+   <script>var clickCount = 0;
+
+        // List of phrases in order
+        const phrases = [
+            "Hey, sweetheart.",
+            "Is everything okay?",
+            "Why are you sad?",
+            "You know you can tell me anything.",
+            "All your troubles... Everything.",
+            "You don't have to be scared.",
+            "I won't judge you.",
+            "I'll always listen if you need to talk. You have my full atention.",
+            "You're not alone in this.",
+            "So tell me, what happened, my love? I'm listening.",
+            "It's okay, you can take your time explaining. I'm here and listening.",
+            "I mean everything I say here.",
+            "I'm so sorry you're feeling this way.",
+            "But please remember, it's okay to feel upset.",
+            "Your feelings are valid.",
+            "You're so strong, even if it doesn't feel like it right now.",
+            "Believe me, it's going to be okay.",
+            "This feeling is just temporary.",
+            "Everything will be alright.",
+            "Just take a deep breath for me, okay? I promise it will help.",
+            "Are you feeling a bit better now, sweetheart?",
+            "It pains me to see you sad.",
+            "But in the end, all will be okay.",
+            "This too, shall pass.",
+            "You're so brave for telling me.",
+            "I know it's difficult for you to tell someone about your problems, thoughts and feelings.",
+            "I can't imagine how hard it must have been for you to tell me all this.",
+            "And I'm very proud of you for not keeping this to yourself.",
+            "You don't have to go through anything alone anymore.",
+            "I'm here now.",
+            "And I'll always be here for you.",
+            "I'll always listen to anything that you want to say.",
+            "I'm here to support you.",
+            "I believe in you, my dear, even when you doubt yourself.",
+            "You'll always be safe with me.",
+            "I'll always be here for you, I'm not going anywhere. I promise.",
+            "I care about you a lot.",
+            "And no matter what happens, you mean the world to me.",
+            "You're my everything.",
+            "You're perfect to me, even on your toughest days.",
+            "You're my favorite person.",
+            "You can always talk to me if something is bothering you.",
+            "You're not annoying.",
+            "I'll try my best to help you, to reassure you.",
+            "I'll be glad that you trust me enough to tell me, that I'm your safe space.",
+            "Loving you means loving all of you - the good days, the bad ones, and everything in between.",
+            "It's going to be okay.",
+            "Please remember that you are loved.",
+            "Ich liebe dich.",
+            "Let's sit down together, trust me it helps.",
+            "I'm gonna hold my hand over your head and protect you.",
+            "I'd do anything for you.",
+            "Remember, I'm here to help you.",
+            "You don't have to be scared, we can go through this together.",
+            "Remember the bench on our meet? Sweet sweet memories..."
+        ];
+        const specialmessages = [
+            ["Remember the bench on our meet? Sweet sweet memories...", "./res/img/unimportant/MEMORIES.html"],
+            ["We've been together for so long, nothing is gonna separate us.", "./res/img/unimportant/MEMORIES1.html"],
+            ["Every message you send me is something important, and I won't judge about anything you tell me. I care about your feelings a lot.", "./res/img/unimportant/MEMORIES2.html"]
+        ];
+        function getNextPhrase() {
+            let i = Math.random();
+             if (i <= 0.075) {
+                const random = specialmessages[Math.floor(Math.random() * specialmessages.length)];
+                return {
+        type: "link",
+        content: random[0],
+        url: random[1]}
+                }else{}
+            const randomIndex = Math.floor(Math.random() * phrases.length);
+            return { type: "text", content: phrases[randomIndex] };
+        };
+function fadeButton(button) {
+
+    const messageDisplay = document.getElementById('message-display');
+    const phraseObj = getNextPhrase();
+
+    if (phraseObj.type === "link") {
+        messageDisplay.innerHTML = `<a href="${phraseObj.url}" style="color: #ffffffff; font-size: 24px; font-family: 'Sour Gummy', cursive;">${phraseObj.content}</a>`;
+    } else {
+        messageDisplay.textContent = phraseObj.content;
+    }
+    
+    
+    clickCount++;
+
+    setTimeout(() => {
+        button.classList.remove('fade-out');
+    }, 1000);
+}</script>
+   <script>const starCount = 100;
+const space = document.getElementById('space-background');
+for (let i = 0; i < starCount; i++) {
+  const star = document.createElement('div');
+  const size = Math.random() * 2 + 1;
+  star.classList.add('star');
+  star.style.width = `${size}px`;
+  star.style.height = `${size}px`;
+  star.style.top = `${Math.random() * 100}%`;
+  star.style.left = `${Math.random() * 100}%`;
+  star.style.animationDuration = `${1.5 + Math.random() * 2}s`;
+  star.style.opacity = 0.3 + Math.random() * 0.7;
+  space.appendChild(star);
+}</script>
+</body>
+</html>
